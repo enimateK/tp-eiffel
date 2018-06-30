@@ -1,0 +1,11 @@
+Benjamin Dutriaux
+
+Les exercices réussis :
+3.1
+3.2
+3.3
+
+J'ai commencé la question 4, le cheat fonctionne uniquement au début
+du jeu, je n'ai aps eu le temps de finir.
+
+La V1 fonctionne, et la V2 fonctionne à part le cheat.

@@ -119,23 +119,26 @@ feature {HANOI}
 				end
 				Result := last_item
 			else
-				io.put_string("La tour est vide !")
+				io.put_string("La tour est vide ! %N")
 			end
 		ensure
 			top >= 1
 		end
 
-	ajouter_disque (d: INTEGER) is
+	ajouter_disque (d: INTEGER): BOOLEAN is
 			-- Ajoute un disque de taille d sur la tour.
 			-- Renvoie une erreur (Explicite) si le disque ne peut pas etre ajoute
 		do
 			if t.item(top) > d  then
 				t.put(d, top+1)
 				top := top + 1
+				Result := True
 			elseif t.item(top) = 0 then
 				t.put(d, top)
+				Result := True
 			else
 				io.put_string("Le disque ne peut être ajouté ! %N")
+				Result := False
 			end
 		ensure
 			top <= height
@@ -148,6 +151,16 @@ feature {HANOI}
 				Result := False
 			else
 				Result := True
+			end
+		end
+	
+	is_full: BOOLEAN is
+	-- tour pleine ?
+		do
+			if top = height then
+				Result := True
+			else
+				Result := False
 			end
 		end
 

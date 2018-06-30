@@ -33,14 +33,18 @@ feature {ANY}
 			print_game
 		end
 
-	resolve (how_many: INTEGER; source, intermediate, destination: TOWER) is
+	resolve (how_many: INTEGER; source, destination, intermediate: TOWER) is
 			-- Algorithme recursif de resolution du jeu qui transfère how_many jetons de la tour source à la tour destination en passant par la tour intermediate
 		local
 			disque: INTEGER
 		do
-			
-			-- A programmer
-			
+			if how_many /= 0 then
+				resolve(how_many - 1, source, intermediate, destination)
+				disque := source.retirer_disque
+				destination.ajouter_disque(disque)
+				print_game
+				resolve(how_many - 1, intermediate, destination, source)
+			end
 		end
 
 
